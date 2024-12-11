@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = htmlspecialchars($_POST['message']);
 
     // טיפול בבקשה (למשל שליחת אימייל)
-    $to = 'your-email@example.com'; // כתובת המייל שאליה תישלח ההודעה
+    $to = 'maorakrish@gmail.com'; // כתובת המייל שאליה תישלח ההודעה
     $subject = 'הודעה חדשה דרך האתר';
     $messageContent = "שם: $name\nאימייל: $email\nטלפון: $phone\n\nהודעה:\n$message";
 
