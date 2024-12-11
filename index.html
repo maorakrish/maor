@@ -86,13 +86,24 @@
         <section id="contact" class="container mx-auto px-4 py-16">
             <h2 class="text-3xl font-bold text-center mb-12">צור קשר</h2>
             <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
-<form action="contact.php" method="POST">
-    <input type="text" name="name" placeholder="שם מלא" required class="w-full p-3 mb-4 border rounded">
-    <input type="email" name="email" placeholder="אימייל" required class="w-full p-3 mb-4 border rounded">
-    <input type="tel" name="phone" placeholder="טלפון" class="w-full p-3 mb-4 border rounded">
-    <textarea name="message" placeholder="הודעה" required class="w-full p-3 mb-4 border rounded" rows="4"></textarea>
-    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded">שלח הודעה</button>
-</form>
+
+נראה ששלחת לי קוד של Google Forms בתוך תגית <iframe>. הקוד הזה יטמיע את טופס Google Forms בדף האינטרנט שלך ויאפשר למבקרים למלא את הטופס ישירות בתוך הדף.
+
+אם אתה רוצה לשלב את הקוד הזה בדף שלך ב-GitHub Pages, זה בהחלט עובד! אתה יכול להוסיף את ה-<iframe> ישירות בקוד ה-HTML של האתר שלך במקום שבו אתה רוצה להציג את הטופס.
+
+לדוגמה:
+
+html
+Copy code
+<section id="contact" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">צור קשר</h2>
+    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdRov-3xJODVy5L6d1zJgJIkk7J9J-fkcRZbyuDzsGUVr8Jow/viewform?embedded=true" 
+                width="640" height="776" frameborder="0" marginheight="0" marginwidth="0">
+            בטעינה…
+        </iframe>
+    </div>
+</section>
 
                 <div id="responseMessage" class="mt-4 hidden text-center text-green-600"></div>
                 <div id="errorMessage" class="mt-4 hidden text-center text-red-600"></div>
