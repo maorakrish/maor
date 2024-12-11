@@ -48,10 +48,7 @@
         <section id="gallery" class="container mx-auto px-4 py-16">
             <h2 class="text-3xl font-bold text-center mb-12">גלריית תמונות</h2>
             <div class="grid-gallery" id="gallery-grid">
-                <img src="1.jpg" alt="תמונה 1">
-                <img src="2.jpg" alt="תמונה 2">
-                <img src="3.jpg" alt="תמונה 3">
-                <img src="4.jpg" alt="תמונה 4">
+                <!-- התמונות יוחלפו בסדר אקראי עם JavaScript -->
             </div>
         </section>
 
@@ -109,37 +106,29 @@
     <script>
         // JavaScript for grid gallery rotation
         const galleryGrid = document.getElementById('gallery-grid');
-        const imageSets = [
-            [
-                '1.jpg',
-                '2.jpg',
-                '3.jpg',
-                '4.jpg'
-            ],
-            [
-                '5.jpg',
-                '6.jpg',
-                '7.jpg',
-                '8.jpg'
-            ],
-            [
-                '5.jpg',
-                '6.jpg',
-                '7.jpg',
-                '8.jpg'
-            ]
+        const imageSources = [
+            '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', 
+            '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg'
         ];
 
-        let currentSetIndex = 0;
+        // פונקציה לשינוי סדר האיברים במערך בצורה אקראית
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // חילוף איברים
+            }
+        }
 
-        setInterval(() => {
-            const images = galleryGrid.querySelectorAll('img');
-            const nextSet = imageSets[currentSetIndex];
-            images.forEach((img, index) => {
-                img.src = nextSet[index];
-            });
-            currentSetIndex = (currentSetIndex + 1) % imageSets.length;
-        }, 3000);
+        // מערבבים את סדר התמונות
+        shuffleArray(imageSources);
+
+        // מעדכנים את הגלריה עם התמונות בסדר אקראי
+        imageSources.forEach(imageSrc => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = `תמונה - ${imageSrc}`;
+            galleryGrid.appendChild(imgElement);
+        });
     </script>
 </body>
 </html>
