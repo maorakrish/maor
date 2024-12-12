@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>המאור של הבשר - הזרקור על הבשר שלכם</title>
     <style>
         .grid-gallery {
@@ -44,7 +46,6 @@
                 <a href="#services" class="mx-2 hover:text-red-200">שירותים</a>
                 <a href="#about" class="mx-2 hover:text-red-200">אודות</a>
                 <a href="#contact" class="mx-2 hover:text-red-200">צור קשר</a>
-                <a href="Special_Menu_Page.html" class="mx-2 hover:text-red-200 font-bold text-yellow-300">מבצעים</a>
             </nav>
             <button @click="mobileMenu = !mobileMenu" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,14 +57,60 @@
             <a href="#services" class="block px-4 py-2 hover:bg-red-600">שירותים</a>
             <a href="#about" class="block px-4 py-2 hover:bg-red-600">אודות</a>
             <a href="#contact" class="block px-4 py-2 hover:bg-red-600">צור קשר</a>
-            <a href="Special_Menu_Page.html" class="block px-4 py-2 hover:bg-red-600 font-bold text-yellow-300">מבצעים</a>
         </nav>
     </header>
 
     <main class="pt-16">
-        <div class="flex items-center justify-center h-screen">
-            <a href="Special_Menu_Page.html" class="bg-yellow-500 text-red-800 font-bold py-4 px-8 rounded-full text-2xl shadow-lg hover:bg-yellow-600 transition">מבצע מיוחד - לחצו כאן!</a>
-        </div>
+        <section id="gallery" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">גלריית תמונות</h2>
+            <div class="grid-gallery" id="gallery-grid">
+                <!-- התמונות יוחלפו כל 3 שניות -->
+            </div>
+        </section>
+
+        <section id="services" class="container mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">השירותים שלנו</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-2xl font-semibold mb-4">אירועי גריל ומעשנה פרטיים</h3>
+                    <p>חוויה בלתי נשכחת אצלכם בחצר! אני מגיע לבית הלקוח עם כל הציוד הדרוש: גרילים, מעשנות, ותבלינים ייחודיים. יחד נתכנן תפריט עשיר ומותאם אישית, הכולל בשרים מעושנים ועסיסיים לצד תוספות מפנקות. כל האורחים ייהנו מהטעמים הטריים ומהאווירה המיוחדת.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-2xl font-semibold mb-4">סדנאות בשרים ואומנות העישון</h3>
+                    <p>ללמוד מהמקצוען – להפוך לשף בשרים אצלכם בבית! אני מעביר סדנאות חווייתיות שבהן תלמדו את סודות הצלייה, העישון והכנת בשרים מושלמים. הסדנאות מתאימות לקבוצות, משפחות או אפילו אירועים מיוחדים כמו ימי הולדת ומסיבות רווקים.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-2xl font-semibold mb-4">אירועי גריל וקונספט ייחודיים</h3>
+                    <p>להפוך את האירוע שלכם לחגיגת בשרים עם טוויסט! אני מציע שירותי גריל מיוחדים לאירועים עם קונספט ייחודי, כמו "על האש בסגנון דרום אמריקאי", ערב טעימות בשרים מעושנים, או חוויית ברביקיו אקסקלוסיבית עם טכניקות מתקדמות ומבחר נתחים מובחרים. נבנה יחד חוויה שמשלבת אוכל מצוין ואווירה בלתי נשכחת, המותאמת בדיוק לאופי האירוע שלכם.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-gray-200 py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-8">על השף – מאור, מומחה הבשרים</h2>
+                <div class="max-w-2xl mx-auto">
+                    <p class="text-lg">עם למעלה מ-10 שנות ניסיון בצלייה ועישון בשרים, אני מביא את התשוקה שלי לאש אמיתית, פחמים ועצים לכל אירוע. האכלתי אלפי אנשים, בין אם בירידי אוכל גדולים או באירועים פרטיים, ותמיד דאגתי שהטעם יהיה בלתי נשכח. הטכניקות המיוחדות והאהבה לבשר הופכים כל מנה לחוויה של ממש.</p>
+                </div>
+            </div>
+        </section>
+
+<section id="contact" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">צור קשר</h2>
+    <div class="flex justify-center space-x-4">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/972506966364?text=שלום%20מאור,%20אני%20רוצה%20לדבר%20איתך" target="_blank" class="flex items-center bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 space-x-2">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span>שלח לי הודעה בוואטסאפ</span>
+        </a>
+        
+        <!-- Phone Button -->
+        <a href="tel:+972506966364" class="flex items-center bg-blue-500 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600 space-x-2">
+            <i class="fas fa-phone-alt text-xl"></i>
+            <span>התקשר אליי</span>
+        </a>
+    </div>
+</section>
     </main>
 
     <footer class="bg-red-800 text-white py-6">
