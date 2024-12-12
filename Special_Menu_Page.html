@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+    <title>תפריט מבצעים - המאור של הבשר</title>
+    <style>
+        .menu-item {
+            cursor: pointer;
+            color: #dc2626;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .menu-item:hover {
+            color: #b91c1c;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-red-800 text-white py-4 fixed w-full z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">המאור של הבשר - תפריט מבצעים</h1>
+        </div>
+    </header>
+
+    <main class="pt-16 container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center mb-8">תפריט האירוע המיוחד שלנו</h2>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-semibold mb-4">מנות ראשונות</h3>
+            <ul>
+                <li class="menu-item" onclick="showImage('starters1.jpg')">נקניקיות הבית - נקניקיות עסיסיות מתובלות בתבלינים סודיים.</li>
+                <li class="menu-item" onclick="showImage('starters2.jpg')">עראיס - פיתה במילוי בשר מתובל, צלוי עד שלמות.</li>
+            </ul>
+        </section>
+
+        <section class="mb-12">
+            <h3 class="text-2xl font-semibold mb-4">מנות עיקריות</h3>
+            <ul>
+                <li class="menu-item" onclick="showImage('main1.jpg')">אנטריקוט - נתח מובחר בצלייה מדויקת.</li>
+                <li class="menu-item" onclick="showImage('main2.jpg')">פיקניה - בשר עסיסי בסגנון ברזילאי.</li>
+                <li class="menu-item" onclick="showImage('main3.jpg')">ספריבס טלה - צלעות טלה רכות עם קרמליזציה מושלמת.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 class="text-2xl font-semibold mb-4">קינוחים</h3>
+            <ul>
+                <li class="menu-item" onclick="showImage('dessert.jpg')">קינוח הפתעה - מתוק ומרגש לסיום מושלם.</li>
+            </ul>
+        </section>
+
+        <p class="text-center text-lg font-semibold mt-8">מחיר מיוחד לאירוע: 399 ש"ח לאדם</p>
+    </main>
+
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="תמונה">
+    </div>
+
+    <script>
+        function showImage(imageSrc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = imageSrc;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
