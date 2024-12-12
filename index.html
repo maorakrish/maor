@@ -36,6 +36,16 @@
             max-width: 90%;
             max-height: 90%;
         }
+
+        /* Modal Style for Special Menu */
+        #special-menu-modal {
+            display: none;
+        }
+        #special-menu-iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans" x-data="{ mobileMenu: false }">
@@ -86,15 +96,6 @@
             </div>
         </section>
 
-        <!-- מבצע מיוחד -->
-        <section id="special-offer" class="container mx-auto px-4 py-16 text-center">
-            <h2 class="text-3xl font-bold mb-4">מבצע מיוחד!</h2>
-            <p class="text-lg mb-6">אל תפספסו את ההזדמנות לקבל הנחה משמעותית על שירותי הגריל והמעשנה שלנו. הצטרפו עכשיו!</p>
-            <a href="#contact" class="bg-yellow-500 text-black font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition duration-300">
-                הצטרפו למבצע עכשיו!
-            </a>
-        </section>
-
         <section id="about" class="bg-gray-200 py-16">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold mb-8">על השף – מאור, מומחה הבשרים</h2>
@@ -103,6 +104,20 @@
                 </div>
             </div>
         </section>
+
+        <!-- מבצע מיוחד -->
+        <section id="special-offer" class="container mx-auto px-4 py-16 text-center">
+            <h2 class="text-3xl font-bold mb-4">מבצע מיוחד!</h2>
+            <p class="text-lg mb-6">אל תפספסו את ההזדמנות לקבל הנחה משמעותית על שירותי הגריל והמעשנה שלנו. הצטרפו עכשיו!</p>
+            <button onclick="openSpecialMenu()" class="bg-yellow-500 text-black font-bold py-3 px-6 rounded-full hover:bg-yellow-400 transition duration-300">
+                הצטרפו למבצע עכשיו!
+            </button>
+        </section>
+
+        <!-- דף קטן (iframe) להצגת התוכן -->
+        <div id="special-menu-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" onclick="closeSpecialMenu(event)">
+            <iframe id="special-menu-iframe" src="Special_Menu_Page.html" class="w-3/4 h-3/4 bg-white rounded-lg" frameborder="0"></iframe>
+        </div>
 
         <section id="contact" class="container mx-auto px-4 py-16">
             <h2 class="text-3xl font-bold text-center mb-12">צור קשר</h2>
@@ -128,64 +143,16 @@
         </div>
     </footer>
 
-    <div id="modal" class="modal" onclick="closeModal(event)">
-        <img id="modal-img" src="" alt="תמונה בגודל מלא">
-    </div>
-
     <script>
-        const galleryGrid = document.getElementById('gallery-grid');
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        let intervalId;
+        function openSpecialMenu() {
+            document.getElementById('special-menu-modal').classList.remove('hidden');
+        }
 
-        const imageSources = [
-            '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', 
-            '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg'
-        ];
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // חילוף איברים
+        function closeSpecialMenu(event) {
+            if (event.target === document.getElementById('special-menu-modal')) {
+                document.getElementById('special-menu-modal').classList.add('hidden');
             }
         }
-
-        function updateGallery() {
-            shuffleArray(imageSources);
-            const selectedImages = imageSources.slice(0, 4);
-            galleryGrid.innerHTML = '';
-            selectedImages.forEach(imageSrc => {
-                const imgElement = document.createElement('img');
-                imgElement.src = imageSrc;
-                imgElement.alt = `תמונה - ${imageSrc}`;
-                imgElement.onclick = function() {
-                    openModal(imageSrc);
-                };
-                galleryGrid.appendChild(imgElement);
-            });
-        }
-
-        function openModal(src) {
-            modal.style.display = 'flex';
-            modalImg.src = src;
-        }
-
-        function closeModal(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        galleryGrid.addEventListener('mouseenter', function() {
-            clearInterval(intervalId);
-        });
-
-        galleryGrid.addEventListener('mouseleave', function() {
-            intervalId = setInterval(updateGallery, 3000);
-        });
-
-        intervalId = setInterval(updateGallery, 3000);
-        updateGallery();
     </script>
 </body>
 </html>
